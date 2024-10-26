@@ -1,8 +1,8 @@
-  <div style="background-color: #6E9C6B;" class="p-2 text-[#FFFFFF]">
+<div style="background-color: #6E9C6B;" class="p-2 text-[#FFFFFF]">
 <!-- <div class="w-full bg-[#D95639] h-auto p-4 text-white"> -->
     <div class="pt-14 flex lg:flex-row flex-col gap-8 justify-center space-x-6">
         <div class="flex flex-col items-center">
-            <h1 class="font-bold text-2xl text-[#c94c4c]">SIMELAR ISPA</h1>
+            <h1 class="font-bold text-2xl text-[#000000]">SIMELAR ISPA</h1>
             <img src={{ asset('./assets/images/logo.png') }} class="mt-5 h-[96.31px] w-[100px]" alt="logo">
             <!-- <div class="mt-6">
                 <h1 class="text-2xl leading-[28.8px] font-semibold">Hadir untuk <br /> memberikan informasi <br />
@@ -11,7 +11,7 @@
             </div> -->
         </div>
         <div class=" flex flex-col items-center">
-            <h1 class="font-bold text-2xl text-[#c94c4c]">Pelayanan</h1>
+            <h1 class="font-bold text-2xl text-[#000000]">Pelayanan</h1>
             <img src={{ asset('./assets/images/others/kota.png') }} class="mt-5 h-[96.31px] w-[70px]" alt="kota">
             <div class="mt-2 text-center">
                 <h1>Hubungi Kami</h1>
@@ -49,7 +49,7 @@
             </div>
         </div>
         <div class="md:text-left ">
-            <h1 class="font-bold text-2xl text-[#c94c4c]">Lokasi</h1>
+            <h1 class="font-bold text-2xl text-[#000000]">Lokasi</h1>
             <div class="mt-6">
                 <p class="leading-[21px] font-light ">
                 Dinas Kesehatan Kota Yogyakarta<br />
@@ -63,7 +63,7 @@
 						
 		</div>
         <div class=" flex flex-col text-center lg:text-left">
-            <h1 class="font-bold text-2xl text-[#c94c4c]">SIMELAR ISPA</h1>
+            <h1 class="font-bold text-2xl text-[#000000]">SIMELAR ISPA</h1>
             <p class="mt-5  font-light leading-[21px]">SIMELAR ISPA atau Sistem Informasi  <br />
                 Penyakit Menular ISPA merupakan <br />
                 WebGIS yang memberikan informasi mengenai<br />
@@ -73,7 +73,7 @@
             </p>
         </div>
         <div class="flex flex-col text-center lg:text-left">
-            <h1 class="font-bold text-2xl text-[#c94c4c]">Fitur</h1>
+            <h1 class="font-bold text-2xl text-[#000000]">Fitur</h1>
             <div class="mt-5 font-light flex flex-col leading-[21px] space-y-5">
                 <a href="/peta" class="hover:opacity-50 group"><svg width="7" height="10"
                         class="group-hover:opacity-50 mr-1 inline" viewBox="0 0 7 10" fill="none"
@@ -98,7 +98,7 @@
                             d="M2.0332 9.36133L6.30469 5.08984L2.0332 0.818359L0.978516 1.87305L4.19531 5.08984L0.978516 8.30664L2.0332 9.36133Z"
                             fill="white" fill-opacity="0.6" />
                     </svg>
-                    Artikel</a>
+                    Edukasi</a>
             </div>
         </div>
     </div>

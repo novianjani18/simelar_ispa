@@ -36,11 +36,11 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
-    <!-- Leaflet Maps CSS -->
+    <!-- Leaflet Maps CSS
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@3.0.9/dist/leaflet-search.src.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.fullscreen@2.4.0/Control.FullScreen.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.fullscreen@2.4.0/Control.FullScreen.min.css"> -->
 
     <!-- OpenLayers -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v10.2.1/ol.css">
@@ -394,7 +394,7 @@
                                             </select>
                                         </div>
                                     </li>
-                                    <li class="nav-item">
+                                    <!-- <li class="nav-item">
                                         <div class="mb-3">
                                             <select class="form-select form-select-sm" id="bulan" name="bulan">
                                                 <option selected disabled>Pilih Bulan</option>
@@ -405,7 +405,7 @@
                                                 @endforeach
                                             </select>
                                         </div>
-                                    </li>
+                                    </li> -->
                                     <li class="nav-item">
                                         <div class="mb-3">
                                             <select class="form-select form-select-sm" id="jenisPenyakit"
@@ -497,7 +497,7 @@
                                                 </select>
                                             </div>
                                         </li>
-                                        <li class="nav-item">
+                                        <!-- <li class="nav-item">
                                             <div class="mb-3">
                                                 <select class="form-select form-select-sm" id="bulan-data1"
                                                     name="bulan-data1">
@@ -509,7 +509,7 @@
                                                     @endforeach
                                                 </select>
                                             </div>
-                                        </li>
+                                        </li> -->
                                         <li class="nav-item">
                                             <div class="mb-3">
                                                 <select class="form-select form-select-sm" id="jenisPenyakit-data1"
@@ -546,7 +546,7 @@
                                                 </select>
                                             </div>
                                         </li>
-                                        <li class="nav-item">
+                                        <!-- <li class="nav-item">
                                             <div class="mb-3">
                                                 <select class="form-select form-select-sm" id="bulan-data2"
                                                     name="bulan-data2">
@@ -558,7 +558,7 @@
                                                     @endforeach
                                                 </select>
                                             </div>
-                                        </li>
+                                        </li> -->
                                         <li class="nav-item">
                                             <div class="mb-3">
                                                 <select class="form-select form-select-sm" id="jenisPenyakit-data2"
@@ -961,7 +961,7 @@
             var jenisParameter = $('#jenisParameter').val();
             var wilayah = $('#wilayah').val();
 
-            if (!tahun || !bulan || !jenisPenyakit || !jenisParameter) {
+            if (!tahun /*|| !bulan*/ || !jenisPenyakit || !jenisParameter) {
                 toastr.warning('Mohon lengkapi semua filter.');
                 return;
             }
@@ -1301,8 +1301,8 @@
             var jenisParameterData2 = $('#jenisParameter-data2').val();
 
             // // check if all data is filled
-            if (!tahunData1 || !bulanData1 || !jenisPenyakitData1 || !jenisParameterData1 || !tahunData2 || !
-                bulanData2 || !jenisPenyakitData2 || !jenisParameterData2) {
+            if (!tahunData1 /*|| !bulanData1*/ || !jenisPenyakitData1 || !jenisParameterData1 || !tahunData2 /*|| !
+                bulanData2*/ || !jenisPenyakitData2 || !jenisParameterData2) {
                 toastr.warning('Mohon lengkapi semua data.');
                 return;
             }
@@ -1319,11 +1319,11 @@
                 jenisParameterData2);
 
             const labelData1 =
-                `${jenisPenyakitData1}-${mapData1.text}, Bulan ${monthMapping[parseInt(bulanData1)]} Tahun ${tahunData1}`
+                `${jenisPenyakitData1}-${mapData1.text},  Tahun ${tahunData1}`
             $('#transparency-data1-label').text(labelData1);
 
             const labelData2 =
-                `${jenisPenyakitData2}-${mapData2.text}, Bulan ${monthMapping[parseInt(bulanData2)]} Tahun ${tahunData2}`
+                `${jenisPenyakitData2}-${mapData2.text},  Tahun ${tahunData2}`
             $('#transparency-data2-label').text(labelData2);
 
             const mapLegendParams = [{
@@ -1338,9 +1338,9 @@
             showMapLegends(mapLegendParams);
 
             const textData1 =
-                `${jenisPenyakitData1} berdasarkan ${mapData1.text} pada Bulan ${monthMapping[parseInt(bulanData1)]} Tahun ${tahunData1}`
+                `${jenisPenyakitData1} berdasarkan ${mapData1.text}  Tahun ${tahunData1}`
             const textData2 =
-                `${jenisPenyakitData2} berdasarkan ${mapData2.text} pada Bulan ${monthMapping[parseInt(bulanData2)]} Tahun ${tahunData2}`
+                `${jenisPenyakitData2} berdasarkan ${mapData2.text}  Tahun ${tahunData2}`
             setMapDescriptionTo(
                 `Data perbandingan ${textData1} dengan ${textData2}.`
             );
@@ -1352,7 +1352,7 @@
                 method: 'GET',
                 data: {
                     tahun: tahunData1,
-                    bulan: bulanData1,
+                    // bulan: bulanData1,
                     jenis_penyakit: jenisPenyakitData1,
                     jenis_parameter: jenisParameterData1
                 },
@@ -1541,7 +1541,7 @@
                 method: 'GET',
                 data: {
                     tahun: tahunData2,
-                    bulan: bulanData2,
+                    // bulan: bulanData2,
                     jenis_penyakit: jenisPenyakitData2,
                     jenis_parameter: jenisParameterData2
                 },
@@ -1729,11 +1729,11 @@
 
         $('#btn-edit-transparency-value').click(function() {
             var tahunData1 = $('#tahun-data1').val();
-            var bulanData1 = $('#bulan-data1').val();
+            // var bulanData1 = $('#bulan-data1').val();
             var jenisPenyakitData1 = $('#jenisPenyakit-data1').val();
             var jenisParameterData1 = $('#jenisParameter-data1').val();
             var tahunData2 = $('#tahun-data2').val();
-            var bulanData2 = $('#bulan-data2').val();
+            // var bulanData2 = $('#bulan-data2').val();
             var jenisPenyakitData2 = $('#jenisPenyakit-data2').val();
             var jenisParameterData2 = $('#jenisParameter-data2').val();
             var transparencyRangeData1 = $('#transparency-range-data1').val();
@@ -1749,7 +1749,7 @@
                 method: 'GET',
                 data: {
                     tahun: tahunData1,
-                    bulan: bulanData1,
+                    // bulan: bulanData1,
                     jenis_penyakit: jenisPenyakitData1,
                     jenis_parameter: jenisParameterData1
                 },
@@ -1950,7 +1950,7 @@
                 method: 'GET',
                 data: {
                     tahun: tahunData2,
-                    bulan: bulanData2,
+                    // bulan: bulanData2,
                     jenis_penyakit: jenisPenyakitData2,
                     jenis_parameter: jenisParameterData2
                 },

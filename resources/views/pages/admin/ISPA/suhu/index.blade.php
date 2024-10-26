@@ -34,7 +34,7 @@
                                         <th>NO</th>
                                         <th>Gambar</th>
                                         <th>Kecamatan</th>
-                                        <th>suhu</th>
+                                        <th>Suhu</th>
                                         <th>Kelas Suhu</th>
                                         <th>Tanggal</th>
                                         <th>Operator</th>

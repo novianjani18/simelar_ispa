@@ -7,8 +7,8 @@
     
     <!-- <div style="background-color: #6E9C6B;" class="p-2 text-[#FFFFFF] w-fit rounded bg">Fitur Aplikasi </div> -->
 
-    <h1 class="font-Anek font-bold text-[32px] md:text-[64px] text-6E9C6B[#D95639]" data-aos="fade-up" data-aos="fade-up">
-        INFORMASI MENGENAI GIS DAN ISPA
+    <h1 class="md:text-center font-Anek font-bold text-[32px] md:text-[64px] text-6E9C6B[#D95639]" data-aos="fade-up" data-aos="fade-up">
+        INFORMASI MENGENAI </br>GIS DAN ISPA
         </h1>
 
     <!-- <h1 class="font-Anek font-bold text-[32px] md:text-[64px] text-[#D95639]" data-aos="fade-up" data-aos="fade-up">ALL

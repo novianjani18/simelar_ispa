@@ -104,7 +104,7 @@
         <div class="flex flex-col md:flex-row justify-center items-center flex-wrap mt-20">
             <div class="flex  lg:w-full justify-center items-center bg-black">
                 <div class="aspect-w-9 aspect-h-16 w-full">
-                <iframe width="700" height="450" src="https://www.youtube.com/embed/wi_TTVEUFFg?si=lqAEPEnjRLWpZAdf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe width="700" height="450" src="https://www.youtube.com/embed/QAGnxa0t-iA?si=Mzm7oyQfRilX0nF8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
             </div>
         </div>

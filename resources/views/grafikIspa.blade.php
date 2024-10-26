@@ -94,16 +94,16 @@
             yearData.add(currentYear);
 
             const arrayYears = Array.from(yearData).sort((a, b) => b - a);
-            const arrayMonth = Array.from(monthData).sort();
-            arrayMonth.map((item, index) => {
-                const inputElement = document.createElement('div');
-                const input = `
-                    <input type="checkbox" name="penyakit-dbd" value=${('0' + (index + 1)).slice(-2)} id="bulan-${'0' + (index + 1)}">
-                    <label for="bulan-${item}">${monthNames[index]}</label>
-                `;
-                inputElement.innerHTML = input;
-                filterBulanContainer.append(inputElement);
-            });
+            // const arrayMonth = Array.from(monthData).sort();
+            // arrayMonth.map((item, index) => {
+            //     const inputElement = document.createElement('div');
+            //     const input = `
+            //         <input type="checkbox" name="penyakit-dbd" value=${('0' + (index + 1)).slice(-2)} id="bulan-${'0' + (index + 1)}">
+            //         <label for="bulan-${item}">${monthNames[index]}</label>
+            //     `;
+            //     inputElement.innerHTML = input;
+            //     filterBulanContainer.append(inputElement);
+            // });
 
             arrayYears.map(item => {
                 const inputElement = document.createElement('div');

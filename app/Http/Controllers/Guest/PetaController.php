@@ -21,11 +21,13 @@ use App\Models\KepadatanPendudukIspa;
 use App\Models\LokasiRawanTunaSusilaHiv;
 use App\Models\PendudukPriaProduktivHiv;
 
+
 class PetaController extends Controller
 {
 
     public function index()
     {
+        // Menggabungkan kelurahan dan kecamatan dari berbagai model
         $kelurahanDbd = DataPenyakitDbd::pluck('kelurahan')->merge(
             FaktorLingkunganDbd::pluck('kelurahan')
         )->merge(
@@ -65,6 +67,7 @@ class PetaController extends Controller
         ]);
     }
 
+
     public function filterPeta(Request $request)
     {
         $tahun = $request->input('tahun');
@@ -74,99 +77,137 @@ class PetaController extends Controller
 
         $filteredData = [];
 
+        // Filter untuk penyakit DBD
         if ($jenisPenyakit == 'DBD') {
             switch ($jenisParameter) {
                 case 'kasus_dbd':
-                    $filteredData = DataPenyakitDbd::whereYear('tanggal', $tahun)
-                        ->whereMonth('tanggal', $bulan)
-                        ->get();
+                    $query = DataPenyakitDbd::whereYear('tanggal', $tahun);
+                    if ($bulan) {
+                        $query->whereMonth('tanggal', $bulan);
+                    }
+                    $filteredData = $query->get();
                     break;
                 case 'kelembapan':
                 case 'curah_hujan':
                 case 'suhu':
-                    $filteredData = FaktorLingkunganDbd::whereYear('tanggal', $tahun)
-                        ->whereMonth('tanggal', $bulan)
-                        ->get();
+                    $query = FaktorLingkunganDbd::whereYear('tanggal', $tahun);
+                    if ($bulan) {
+                        $query->whereMonth('tanggal', $bulan);
+                    }
+                    $filteredData = $query->get();
                     break;
                 case 'kepadatan_penduduk':
-                    $filteredData = KepadatanPendudukDbd::whereYear('tanggal', $tahun)
-                        ->whereMonth('tanggal', $bulan)
-                        ->get();
+                    $query = KepadatanPendudukDbd::whereYear('tanggal', $tahun);
+                    if ($bulan) {
+                        $query->whereMonth('tanggal', $bulan);
+                    }
+                    $filteredData = $query->get();
                     break;
             }
-        } elseif ($jenisPenyakit == 'ISPA') {
+        }
+
+        elseif ($jenisPenyakit == 'ISPA') {
             switch ($jenisParameter) {
                 case 'kasus_ispa':
-                    $filteredData = DataPenyakitIspa::whereYear('tanggal', $tahun)
-                        ->whereMonth('tanggal', $bulan)
-                        ->get();
+                    $query = DataPenyakitIspa::whereYear('tanggal', $tahun);
+                    if ($bulan) {
+                        $query->whereMonth('tanggal', $bulan);
+                    }
+                    $filteredData = $query->get();
                     break;
                 case 'curah_hujan':
-                    $filteredData = CurahHujanIspa::whereYear('tanggal', $tahun)
-                        ->whereMonth('tanggal', $bulan)
-                        ->get();
+                    $query = CurahHujanIspa::whereYear('tanggal', $tahun);
+                    if ($bulan) {
+                        $query->whereMonth('tanggal', $bulan);
+                    }
+                    $filteredData = $query->get();
                     break;
                 case 'kelembapan':
-                    $filteredData = KelembapanIspa::whereYear('tanggal', $tahun)
-                        ->whereMonth('tanggal', $bulan)
-                        ->get();
+                    $query = KelembapanIspa::whereYear('tanggal', $tahun);
+                    if ($bulan) {
+                        $query->whereMonth('tanggal', $bulan);
+                    }
+                    $filteredData = $query->get();
                     break;
                 case 'suhu':
-                    $filteredData = SuhuIspa::whereYear('tanggal', $tahun)
-                        ->whereMonth('tanggal', $bulan)
-                        ->get();
+                    $query = SuhuIspa::whereYear('tanggal', $tahun);
+                    if ($bulan) {
+                        $query->whereMonth('tanggal', $bulan);
+                    }
+                    $filteredData = $query->get();
                     break;
                 case 'kepadatan_penduduk':
-                    $filteredData = KepadatanPendudukIspa::whereYear('tanggal', $tahun)
-                        ->whereMonth('tanggal', $bulan)
-                        ->get();
+                    $query = KepadatanPendudukIspa::whereYear('tanggal', $tahun);
+                    if ($bulan) {
+                        $query->whereMonth('tanggal', $bulan);
+                    }
+                    $filteredData = $query->get();
                     break;
             }
-        } elseif ($jenisPenyakit == 'HIV') {
+        } 
+        
+        elseif ($jenisPenyakit == 'HIV') {
             switch ($jenisParameter) {
                 case 'kasus_hiv':
-                    $filteredData = KasusHiv::whereYear('tanggal', $tahun)
-                        ->whereMonth('tanggal', $bulan)
-                        ->get();
+                    $query = KasusHiv::whereYear('tanggal', $tahun);
+                    if ($bulan) {
+                        $query->whereMonth('tanggal', $bulan);
+                    }
+                    $filteredData = $query->get();
                     break;
                 case 'tuna_susila':
-                    $filteredData = TunaSusilaHiv::whereYear('tanggal', $tahun)
-                        ->whereMonth('tanggal', $bulan)
-                        ->get();
+                    $query = TunaSusilaHiv::whereYear('tanggal', $tahun);
+                    if ($bulan) {
+                        $query->whereMonth('tanggal', $bulan);
+                    }
+                    $filteredData = $query->get();
                     break;
                 case 'penduduk_miskin':
-                    $filteredData = PendudukMiskinHiv::whereYear('tanggal', $tahun)
-                        ->whereMonth('tanggal', $bulan)
-                        ->get();
+                    $query = PendudukMiskinHiv::whereYear('tanggal', $tahun);
+                    if ($bulan) {
+                        $query->whereMonth('tanggal', $bulan);
+                    }
+                    $filteredData = $query->get();
                     break;
                 case 'hotspot':
-                    $filteredData = HotspotHiv::whereYear('tanggal', $tahun)
-                        ->whereMonth('tanggal', $bulan)
-                        ->get();
+                    $query = HotspotHiv::whereYear('tanggal', $tahun);
+                    if ($bulan) {
+                        $query->whereMonth('tanggal', $bulan);
+                    }
+                    $filteredData = $query->get();
                     break;
                 case 'lokasi_rawan_tuna_susila':
-                    $filteredData = LokasiRawanTunaSusilaHiv::whereYear('tanggal', $tahun)
-                        ->whereMonth('tanggal', $bulan)
-                        ->get();
+                    $query = LokasiRawanTunaSusilaHiv::whereYear('tanggal', $tahun);
+                    if ($bulan) {
+                        $query->whereMonth('tanggal', $bulan);
+                    }
+                    $filteredData = $query->get();
                     break;
                 case 'penduduk_lakilaki_usia_produktif':
-                    $filteredData = PendudukPriaProduktivHiv::whereYear('tanggal', $tahun)
-                        ->whereMonth('tanggal', $bulan)
-                        ->get();
+                    $query = PendudukPriaProduktivHiv::whereYear('tanggal', $tahun);
+                    if ($bulan) {
+                        $query->whereMonth('tanggal', $bulan);
+                    }
+                    $filteredData = $query->get();
                     break;
                 case 'wilayah_rentan_hiv':
-                    $filteredData = WilayahRentanHiv::whereYear('tanggal', $tahun)
-                        ->whereMonth('tanggal', $bulan)
-                        ->get();
+                    $query = WilayahRentanHiv::whereYear('tanggal', $tahun);
+                    if ($bulan) {
+                        $query->whereMonth('tanggal', $bulan);
+                    }
+                    $filteredData = $query->get();
                     break;
                 case 'faskes_hiv':
-                    $filteredData = FaskesPdpHiv::whereYear('tanggal', $tahun)
-                        ->whereMonth('tanggal', $bulan)
-                        ->get();
+                    $query = FaskesPdpHiv::whereYear('tanggal', $tahun);
+                    if ($bulan) {
+                        $query->whereMonth('tanggal', $bulan);
+                    }
+                    $filteredData = $query->get();
                     break;
             }
         }
 
         return response()->json($filteredData);
+
     }
 }

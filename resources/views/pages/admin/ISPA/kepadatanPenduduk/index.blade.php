@@ -16,10 +16,10 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center mb-3">
-                            <h4 class="card-title">Kepadatan PenduDUK ISPA</h4>
+                            <h4 class="card-title">Kepadatan Penduduk ISPA</h4>
                             <a href="{{ route('admin.kepadatan-penduduk-ispa.create') }}"
                                 class="btn btn-primary btn-sm">Tambah
-                                Kepadatan PenduDUK ISPA</a>
+                                Kepadatan Penduduk ISPA</a>
                         </div>
 
                         @if (session('success'))

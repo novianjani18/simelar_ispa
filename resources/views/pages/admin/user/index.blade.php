@@ -41,7 +41,7 @@
                                     <tr>
                                         <th>NO</th>
                                         <th>gambar</th>
-                                        <th>name</th>
+                                        <th>nama</th>
                                         <th>email</th>
                                         <th>Aksi</th>
                                     </tr>
