@@ -803,7 +803,7 @@
 
         var view = new ol.View({
             center: ol.proj.fromLonLat([110.37080987401741, -7.801522645533201]),
-            zoom: 13
+            zoom: 13.5
         });
 
         // Inisialisasi peta menggunakan OpenLayers
@@ -977,8 +977,13 @@
             const parameterText = mapData[jenisPenyakit].options.find(option => option.value === jenisParameter)
                 .text ?? '';
             setMapDescriptionTo(
-                `Data ${jenisPenyakit} berdasarkan ${parameterText} Bulan ${monthMapping[parseInt(bulan)]} Tahun ${tahun} `
+                `Indikasi data ${jenisPenyakit} berdasarkan ${parameterText} Tahun ${tahun} `
+                
             );
+
+            // setMapDescriptionTo(
+            //     `Data ${jenisPenyakit} berdasarkan ${parameterText} Bulan ${monthMapping[parseInt(bulan)]} Tahun ${tahun}. Data  `
+            // );
 
             $.ajax({
                 url: '{{ route('peta.filter') }}',
@@ -1149,20 +1154,37 @@
 
                             if (!selectedOptions) return;
                             const legends = selectedOptions.legends
-                            fillColor = legends[tingkatKa] ?? 'rgba(0, 0, 0, 0.6)';
-
-                            return new ol.style.Style({
+                            fillColor = legends[tingkatKa] ?? 'rgba(0, 0, 0, 0.6)'; 
+                            
+                            // Gaya utama (warna isian dan garis batas)
+                            const mainStyle = new ol.style.Style({
                                 fill: new ol.style.Fill({
                                     color: fillColor
                                 }),
                                 stroke: new ol.style.Stroke({
                                     color: '#333',
-                                    width: 1
+                                    width: 1.5
                                 })
                             });
+
+                            // Gaya label (nama kecamatan)
+                            const labelStyle = new ol.style.Style({
+                                text: new ol.style.Text({
+                                    text: feature.get('kecamatan') || '', // Nama kecamatan
+                                    font: '10px Arial',
+                                    fill: new ol.style.Fill
+                                    ({color: '#000'}),
+                                    stroke: new ol.style.Stroke({
+                                        color: '#fff', width: 2 }),
+                                        overflow: true, // Agar teks tidak terpotong 
+                                        })
+                                    });
+
+                                    // Kembalikan array gaya
+                                    return [mainStyle, labelStyle];
                         }
                     });
-
+      
                     map.addLayer(newVectorLayer);
 
                     toastr.success('Data berhasil dimuat!');
@@ -1525,9 +1547,38 @@
                                     width: 1
                                 })
                             });
+
+
+                             // Gaya utama (warna isian dan garis batas)
+                             const mainStyle = new ol.style.Style({
+                                fill: new ol.style.Fill({
+                                    color: fillColor
+                                }),
+                                stroke: new ol.style.Stroke({
+                                    color: '#333',
+                                    width: 1.5
+                                })
+                            });
+
+                            // Gaya label (nama kecamatan)
+                            const labelStyle = new ol.style.Style({
+                                text: new ol.style.Text({
+                                    text: feature.get('kecamatan') || '', // Nama kecamatan
+                                    font: '10px Arial',
+                                    fill: new ol.style.Fill
+                                    ({color: '#000'}),
+                                    stroke: new ol.style.Stroke({
+                                        color: '#fff', width: 2 }),
+                                        overflow: true, // Agar teks tidak terpotong 
+                                        })
+                                    });
+
+                                    // Kembalikan array gaya
+                                    return [mainStyle, labelStyle];
+                    
                         }
                     });
-
+                    
                     map.addLayer(newVectorLayer);
                 },
                 error: function() {
@@ -1714,6 +1765,34 @@
                                     width: 1
                                 })
                             });
+
+                             // Gaya utama (warna isian dan garis batas)
+                             const mainStyle = new ol.style.Style({
+                                fill: new ol.style.Fill({
+                                    color: fillColor
+                                }),
+                                stroke: new ol.style.Stroke({
+                                    color: '#333',
+                                    width: 1.5
+                                })
+                            });
+
+                            // Gaya label (nama kecamatan)
+                            const labelStyle = new ol.style.Style({
+                                text: new ol.style.Text({
+                                    text: feature.get('kecamatan') || '', // Nama kecamatan
+                                    font: '10px Arial',
+                                    fill: new ol.style.Fill
+                                    ({color: '#000'}),
+                                    stroke: new ol.style.Stroke({
+                                        color: '#fff', width: 2 }),
+                                        overflow: true, // Agar teks tidak terpotong 
+                                        })
+                                    });
+
+                                    // Kembalikan array gaya
+                                    return [mainStyle, labelStyle];
+                        
                         }
                     });
 
@@ -1934,8 +2013,10 @@
                                     width: 1
                                 })
                             });
+                        
                         }
                     });
+
 
                     map.addLayer(newVectorLayer);
                 },
@@ -2135,6 +2216,34 @@
                                     width: 1
                                 })
                             });
+
+
+                             // Gaya utama (warna isian dan garis batas)
+                             const mainStyle = new ol.style.Style({
+                                fill: new ol.style.Fill({
+                                    color: fillColor
+                                }),
+                                stroke: new ol.style.Stroke({
+                                    color: '#333',
+                                    width: 1.5
+                                })
+                            });
+
+                            // Gaya label (nama kecamatan)
+                            const labelStyle = new ol.style.Style({
+                                text: new ol.style.Text({
+                                    text: feature.get('kecamatan') || '', // Nama kecamatan
+                                    font: '10px Arial',
+                                    fill: new ol.style.Fill
+                                    ({color: '#000'}),
+                                    stroke: new ol.style.Stroke({
+                                        color: '#fff', width: 2 }),
+                                        overflow: true, // Agar teks tidak terpotong 
+                                        })
+                                    });
+
+                                    // Kembalikan array gaya
+                                    return [mainStyle, labelStyle];
                         }
                     });
 

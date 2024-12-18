@@ -170,8 +170,8 @@ const mapData = {
             },
             {
                 value: "curah_hujan",
-                text: "Curah Hujan",
                 legends: {
+                text: "Curah Hujan",
                     tinggi: "rgb(255, 34, 0)",
                     sedang: "rgb(255, 255, 0)",
                     rendah: "rgb(85,255,0)",

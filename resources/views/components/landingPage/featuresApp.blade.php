@@ -101,13 +101,19 @@
         </div>
 
         
-        <div class="flex flex-col md:flex-row justify-center items-center flex-wrap mt-20">
-            <div class="flex  lg:w-full justify-center items-center bg-black">
-                <div class="aspect-w-9 aspect-h-16 w-full">
-                <iframe width="700" height="450" src="https://www.youtube.com/embed/QAGnxa0t-iA?si=Mzm7oyQfRilX0nF8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
-            </div>
-        </div>
+        <div class="flex justify-center items-center mt-10">
+    <div class="w-full max-w-3xl aspect-video"> <!-- Ukuran max-w diperbaiki -->
+        <iframe
+            class="w-full h-full rounded-lg"
+            src="https://www.youtube.com/embed/gaQ6wfjJhEA?si=6G0uwwMtcIfQg-6K"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+        </iframe>
+    </div>
+</div>
         
     </div>
 </div>
