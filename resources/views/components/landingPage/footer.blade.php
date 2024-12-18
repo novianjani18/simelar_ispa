@@ -48,7 +48,7 @@
                 </div>
             </div>
         </div>
-        <div class="flex flex-col text-center lg:text-left">
+        <div class="flex flex-col text-center lg:text-left ">
             <h1 class="font-bold text-2xl text-[#000000]">Lokasi</h1>
             <div class="mt-6">
                 <p class="leading-[21px] font-light ">

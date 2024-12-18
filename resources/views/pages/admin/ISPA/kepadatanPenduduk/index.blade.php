@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
-@section('title', 'Kepadatan PenduDUK ISPA')
+@section('title', 'Hotspot ISPA')
 
 @section('content')
     <div class="page-content">
         <nav class="page-breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('admin.dashboard.index') }}">Dashboard</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Kepadatan PenduDUK ISPA</li>
+                <li class="breadcrumb-item active" aria-current="page">Hotspot ISPA</li>
             </ol>
         </nav>
 
@@ -16,10 +16,10 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center mb-3">
-                            <h4 class="card-title">Kepadatan Penduduk ISPA</h4>
+                            <h4 class="card-title">Hotspot ISPA</h4>
                             <a href="{{ route('admin.kepadatan-penduduk-ispa.create') }}"
                                 class="btn btn-primary btn-sm">Tambah
-                                Kepadatan Penduduk ISPA</a>
+                                Hotspot ISPA</a>
                         </div>
 
                         @if (session('success'))
@@ -32,14 +32,14 @@
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th>NO</th>
+                                    <th>NO</th>
                                         <th>Gambar</th>
                                         <th>Kecamatan</th>
-                                        <th>Kepadatan bps</th>
-                                        <th>Kelas</th>
+                                        <th>Nilai Klaster (%)</th>
+                                        <th>Klaster</th>
                                         <th>Tanggal</th>
                                         <th>Operator</th>
-                                        <th>Aksi</th>
+                                        <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -75,7 +75,7 @@
                                         </tr>
                                     @empty
                                         <tr>
-                                            <td colspan="12" class="text-center">Tidak ada kepadatan PenduDUK ISPA</td>
+                                            <td colspan="12" class="text-center">Hotspot ISPA</td>
                                         </tr>
                                     @endforelse
                                 </tbody>

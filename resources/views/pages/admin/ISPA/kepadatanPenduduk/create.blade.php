@@ -1,16 +1,16 @@
 @extends('layouts.app')
 
-@section('title', 'Create Kepadatan Penduduk ISPA')
+@section('title', 'Create Hotspot ISPA')
 
 @section('content')
 
     <div class="page-content">
 
-        <nav class="page-breadcrumb">
+    <nav class="page-breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('admin.dashboard.index') }}">Dashboard</a></li>
-                <li class="breadcrumb-item"><a href="{{ route('admin.news.index') }}">Kepadatan Penduduk ISPA</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Create Kepadatan Penduduk ISPA</li>
+                <li class="breadcrumb-item"><a href="{{ route('admin.news.index') }}">Hotspot ISPA</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Create Hotspot ISPA</li>
             </ol>
         </nav>
 

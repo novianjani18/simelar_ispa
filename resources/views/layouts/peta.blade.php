@@ -422,7 +422,7 @@
                                         <div class="mb-3">
                                             <select class="form-select form-select-sm" id="jenisParameter"
                                                 name="jenisParameter">
-                                                <option selected disabled>Pilih Jenis Parameter</option>
+                                                <option selected disabled>Pilih Jenis Pengukuran</option>
                                             </select>
                                         </div>
                                     </li>
@@ -526,7 +526,7 @@
                                             <div class="mb-3">
                                                 <select class="form-select form-select-sm" id="jenisParameter-data1"
                                                     name="jenisParameter-data1">
-                                                    <option selected disabled>Pilih Jenis Parameter</option>
+                                                    <option selected disabled>Pilih Jenis Pengukuran</option>
                                                 </select>
                                             </div>
                                         </li>
@@ -575,7 +575,7 @@
                                             <div class="mb-3">
                                                 <select class="form-select form-select-sm" id="jenisParameter-data2"
                                                     name="jenisParameter-data2">
-                                                    <option selected disabled>Pilih Jenis Parameter</option>
+                                                    <option selected disabled>Pilih Jenis Pengukuran</option>
                                                 </select>
                                             </div>
                                         </li>
@@ -686,7 +686,7 @@
                     </li>
 
 
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" data-bs-toggle="collapse" href="#deskripsi" role="button"
                             aria-expanded="false" aria-controls="deskripsi">
                             <i class="link-icon text-white" data-feather="book-open"></i>
@@ -702,7 +702,7 @@
                                 </li>
                             </ul>
                         </div>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </nav>
@@ -803,7 +803,7 @@
 
         var view = new ol.View({
             center: ol.proj.fromLonLat([110.37080987401741, -7.801522645533201]),
-            zoom: 13.5
+            zoom: 13
         });
 
         // Inisialisasi peta menggunakan OpenLayers
@@ -977,13 +977,8 @@
             const parameterText = mapData[jenisPenyakit].options.find(option => option.value === jenisParameter)
                 .text ?? '';
             setMapDescriptionTo(
-                `Indikasi data ${jenisPenyakit} berdasarkan ${parameterText} Tahun ${tahun} `
-                
+                `Data ${jenisPenyakit} berdasarkan ${parameterText} Bulan ${monthMapping[parseInt(bulan)]} Tahun ${tahun} `
             );
-
-            // setMapDescriptionTo(
-            //     `Data ${jenisPenyakit} berdasarkan ${parameterText} Bulan ${monthMapping[parseInt(bulan)]} Tahun ${tahun}. Data  `
-            // );
 
             $.ajax({
                 url: '{{ route('peta.filter') }}',
@@ -1059,10 +1054,10 @@
                                     break;
                                 case 'kepadatan_penduduk':
                                     feature.set('kecamatan', item.kecamatan)
-                                    feature.set('nilai kepadatan penduduk', item.kpdt_bps)
-                                    feature.set('kelas', item.kelas_kpdt)
+                                    feature.set('nilai klaster (%)', item.kpdt_bps)
+                                    feature.set('klaster', item.kelas_kpdt)
                                     feature.set('tingkat_ka', item.kelas_kpdt)
-                                    break;
+                                    break;
                                 case 'suhu':
                                     feature.set('kecamatan', item.kecamatan)
                                     feature.set('nilai suhu', item.suhu)
@@ -1154,37 +1149,20 @@
 
                             if (!selectedOptions) return;
                             const legends = selectedOptions.legends
-                            fillColor = legends[tingkatKa] ?? 'rgba(0, 0, 0, 0.6)'; 
-                            
-                            // Gaya utama (warna isian dan garis batas)
-                            const mainStyle = new ol.style.Style({
+                            fillColor = legends[tingkatKa] ?? 'rgba(0, 0, 0, 0.6)';
+
+                            return new ol.style.Style({
                                 fill: new ol.style.Fill({
                                     color: fillColor
                                 }),
                                 stroke: new ol.style.Stroke({
                                     color: '#333',
-                                    width: 1.5
+                                    width: 1
                                 })
                             });
-
-                            // Gaya label (nama kecamatan)
-                            const labelStyle = new ol.style.Style({
-                                text: new ol.style.Text({
-                                    text: feature.get('kecamatan') || '', // Nama kecamatan
-                                    font: '10px Arial',
-                                    fill: new ol.style.Fill
-                                    ({color: '#000'}),
-                                    stroke: new ol.style.Stroke({
-                                        color: '#fff', width: 2 }),
-                                        overflow: true, // Agar teks tidak terpotong 
-                                        })
-                                    });
-
-                                    // Kembalikan array gaya
-                                    return [mainStyle, labelStyle];
                         }
                     });
-      
+
                     map.addLayer(newVectorLayer);
 
                     toastr.success('Data berhasil dimuat!');
@@ -1439,12 +1417,12 @@
                                     feature.set('kelas', item.kelas)
                                     feature.set('tingkat_ka', item.kelas)
                                     break;
-                                case 'kepadatan_penduduk':
+                                    case 'kepadatan_penduduk':
                                     feature.set('kecamatan', item.kecamatan)
-                                    feature.set('nilai kepadatan penduduk', item.kpdt_bps)
-                                    feature.set('kelas', item.kelas_kpdt)
+                                    feature.set('nilai klaster (%)', item.kpdt_bps)
+                                    feature.set('klaster', item.kelas_kpdt)
                                     feature.set('tingkat_ka', item.kelas_kpdt)
-                                    break;
+                                    break;
                                 case 'suhu':
                                     feature.set('kecamatan', item.kecamatan)
                                     feature.set('nilai suhu', item.suhu)
@@ -1547,38 +1525,9 @@
                                     width: 1
                                 })
                             });
-
-
-                             // Gaya utama (warna isian dan garis batas)
-                             const mainStyle = new ol.style.Style({
-                                fill: new ol.style.Fill({
-                                    color: fillColor
-                                }),
-                                stroke: new ol.style.Stroke({
-                                    color: '#333',
-                                    width: 1.5
-                                })
-                            });
-
-                            // Gaya label (nama kecamatan)
-                            const labelStyle = new ol.style.Style({
-                                text: new ol.style.Text({
-                                    text: feature.get('kecamatan') || '', // Nama kecamatan
-                                    font: '10px Arial',
-                                    fill: new ol.style.Fill
-                                    ({color: '#000'}),
-                                    stroke: new ol.style.Stroke({
-                                        color: '#fff', width: 2 }),
-                                        overflow: true, // Agar teks tidak terpotong 
-                                        })
-                                    });
-
-                                    // Kembalikan array gaya
-                                    return [mainStyle, labelStyle];
-                    
                         }
                     });
-                    
+
                     map.addLayer(newVectorLayer);
                 },
                 error: function() {
@@ -1657,12 +1606,12 @@
                                     feature.set('kelas', item.kelas)
                                     feature.set('tingkat_ka', item.kelas)
                                     break;
-                                case 'kepadatan_penduduk':
+                                    case 'kepadatan_penduduk':
                                     feature.set('kecamatan', item.kecamatan)
-                                    feature.set('nilai kepadatan penduduk', item.kpdt_bps)
-                                    feature.set('kelas', item.kelas_kpdt)
+                                    feature.set('nilai klaster (%)', item.kpdt_bps)
+                                    feature.set('klaster', item.kelas_kpdt)
                                     feature.set('tingkat_ka', item.kelas_kpdt)
-                                    break;
+                                    break;
                                 case 'suhu':
                                     feature.set('kecamatan', item.kecamatan)
                                     feature.set('nilai suhu', item.suhu)
@@ -1765,34 +1714,6 @@
                                     width: 1
                                 })
                             });
-
-                             // Gaya utama (warna isian dan garis batas)
-                             const mainStyle = new ol.style.Style({
-                                fill: new ol.style.Fill({
-                                    color: fillColor
-                                }),
-                                stroke: new ol.style.Stroke({
-                                    color: '#333',
-                                    width: 1.5
-                                })
-                            });
-
-                            // Gaya label (nama kecamatan)
-                            const labelStyle = new ol.style.Style({
-                                text: new ol.style.Text({
-                                    text: feature.get('kecamatan') || '', // Nama kecamatan
-                                    font: '10px Arial',
-                                    fill: new ol.style.Fill
-                                    ({color: '#000'}),
-                                    stroke: new ol.style.Stroke({
-                                        color: '#fff', width: 2 }),
-                                        overflow: true, // Agar teks tidak terpotong 
-                                        })
-                                    });
-
-                                    // Kembalikan array gaya
-                                    return [mainStyle, labelStyle];
-                        
                         }
                     });
 
@@ -1893,12 +1814,12 @@
                                     feature.set('kelas', item.kelas)
                                     feature.set('tingkat_ka', item.kelas)
                                     break;
-                                case 'kepadatan_penduduk':
+                                    case 'kepadatan_penduduk':
                                     feature.set('kecamatan', item.kecamatan)
-                                    feature.set('nilai kepadatan penduduk', item.kpdt_bps)
-                                    feature.set('kelas', item.kelas_kpdt)
+                                    feature.set('nilai klaster (%)', item.kpdt_bps)
+                                    feature.set('klaster', item.kelas_kpdt)
                                     feature.set('tingkat_ka', item.kelas_kpdt)
-                                    break;
+                                    break;
                                 case 'suhu':
                                     feature.set('kecamatan', item.kecamatan)
                                     feature.set('nilai suhu', item.suhu)
@@ -2013,10 +1934,8 @@
                                     width: 1
                                 })
                             });
-                        
                         }
                     });
-
 
                     map.addLayer(newVectorLayer);
                 },
@@ -2098,10 +2017,10 @@
                                     break;
                                 case 'kepadatan_penduduk':
                                     feature.set('kecamatan', item.kecamatan)
-                                    feature.set('nilai kepadatan penduduk', item.kpdt_bps)
-                                    feature.set('kelas', item.kelas_kpdt)
+                                    feature.set('nilai klaster (%)', item.kpdt_bps)
+                                    feature.set('klaster', item.kelas_kpdt)
                                     feature.set('tingkat_ka', item.kelas_kpdt)
-                                    break;
+                                    break;
                                 case 'suhu':
                                     feature.set('kecamatan', item.kecamatan)
                                     feature.set('nilai suhu', item.suhu)
@@ -2216,34 +2135,6 @@
                                     width: 1
                                 })
                             });
-
-
-                             // Gaya utama (warna isian dan garis batas)
-                             const mainStyle = new ol.style.Style({
-                                fill: new ol.style.Fill({
-                                    color: fillColor
-                                }),
-                                stroke: new ol.style.Stroke({
-                                    color: '#333',
-                                    width: 1.5
-                                })
-                            });
-
-                            // Gaya label (nama kecamatan)
-                            const labelStyle = new ol.style.Style({
-                                text: new ol.style.Text({
-                                    text: feature.get('kecamatan') || '', // Nama kecamatan
-                                    font: '10px Arial',
-                                    fill: new ol.style.Fill
-                                    ({color: '#000'}),
-                                    stroke: new ol.style.Stroke({
-                                        color: '#fff', width: 2 }),
-                                        overflow: true, // Agar teks tidak terpotong 
-                                        })
-                                    });
-
-                                    // Kembalikan array gaya
-                                    return [mainStyle, labelStyle];
                         }
                     });
 

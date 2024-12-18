@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Edit Kepadatan Penduduk ISPA')
+@section('title', 'Edit Hotspot ISPA')
 
 @section('content')
 
@@ -9,10 +9,10 @@
         <nav class="page-breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('admin.dashboard.index') }}">Dashboard</a></li>
-                <li class="breadcrumb-item"><a href="{{ route('admin.data-penyakit-ispa.index') }}">Kepadatan Penduduk
+                <li class="breadcrumb-item"><a href="{{ route('admin.data-penyakit-ispa.index') }}">Hotspot
                         ISPA</a>
                 </li>
-                <li class="breadcrumb-item active" aria-current="page">Edit Kepadatan Penduduk ISPA</li>
+                <li class="breadcrumb-item active" aria-current="page">Edit Hotspot ISPA</li>
             </ol>
         </nav>
 
@@ -44,17 +44,17 @@
 
                             <!-- kepdatan bps21 -->
                             <div class="mb-3">
-                                <label for="kpdt_bps" class="form-label">kepdatan bps21</label>
+                                <label for="kpdt_bps" class="form-label">Nilai Klaster (%)</label>
                                 <input type="number" class="form-control" id="kpdt_bps" name="kpdt_bps"
                                     value="{{ $kepadatanPendudukIspa->kpdt_bps }}" required>
                             </div>
 
                             <!-- Kelas Kepadatan -->
                             <div class="mb-3">
-                                <label for="kelas_kpdt" class="form-label">Kelas</label>
+                                <label for="kelas_kpdt" class="form-label">Klaster</label>
                                 <input type="text" class="form-control" id="kelas_kpdt" name="kelas_kpdt"
                                     value="{{ $kepadatanPendudukIspa->kelas_kpdt }}" required>
-                            </div>
+                            </div>
 
                             <div class="mb-3">
                                 <label for="geometry" class="form-label">Geometry</label>

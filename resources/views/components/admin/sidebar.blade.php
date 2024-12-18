@@ -133,12 +133,12 @@
                                         <li class="nav-item">
                                             <a href="{{ route('admin.kepadatan-penduduk-ispa.index') }}"
                                                 class="nav-link {{ request()->routeIs('admin.kepadatan-penduduk-ispa.*') ? 'active' : '' }}">
-                                                Kepadatan Penduduk
+                                                Hotspot ISPA
                                             </a>
                                         </li>
 
                                         <!-- Data -->
-                                        <li class="nav-item">
+                                        <!-- <li class="nav-item">
                                             <a href="{{ route('admin.curah-hujan-ispa.index') }}"
                                                 class="nav-link {{ request()->routeIs('admin.curah-hujan-ispa.*') ? 'active' : '' }}">
                                                 Curah Hujan
@@ -155,7 +155,7 @@
                                                 class="nav-link {{ request()->routeIs('admin.suhu-ispa.*') ? 'active' : '' }}">
                                                 Suhu
                                             </a>
-                                        </li>
+                                        </li> -->
                                     </ul>
                                 </div>
                             </li>

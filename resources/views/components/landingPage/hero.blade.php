@@ -16,9 +16,8 @@
                 <br />
                 PENYAKIT MENULAR ISPA
             </h1>
-            <p class="px-5 md:px-[90px] text-xl md:text-[20px] mt-6">SIMELAR ISPA merupakan sistem informasi penyakit menular ISPA yang memberikan informasi mengenai sebaran ISPA khususnya Pneumonia pada Balita, 
-                sehingga diharapkan dapat menjadikan bahan 
-                untuk tenaga kesehatan dan Pemerintah ataupun non-Pemerintah dalam menganalisis kasus ISPA dan dapat menekan angka penyebaran penyakit. 
+            <p class="px-5 md:px-[90px] text-xl md:text-[20px] mt-6">Memberikan akses cepat dan mudah mengenai kasus penyakit
+                serta penyebaran ISPA Pneumonia Balita
                 <br /> SIMELAR ISPA hadir untuk memberikan rangkuman informasi kasus ISPA yang up-to-date
                 <br />
                 khususnya di Yogyakarta.
@@ -61,9 +60,9 @@
 
         <div style="background-color: #6E9C6B;" class="py-10 px-8 rounded-xl w-[426px] h-64 ">
             <div class="flex">
-                <svg width="63" height="64" viewBox="0 0 63 64" fill="none"
+                <svg width="62" height="63" viewBox="0 0 62 63" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
-                    <rect width="62.25" height="63.8333" rx="6" fill="#77FCA1" />
+                    <rect width="61.8203" height="62.8509" rx="6" fill="#77FCA1" />
                     <path
                         d="M33.8967 38.9967H27.9233V34.8167H23.7433V28.8433H27.9233V24.6633H33.8967V28.8433H38.0767V34.8167H33.8967V38.9967Z"
                         stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
