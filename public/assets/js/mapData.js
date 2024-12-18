@@ -143,40 +143,44 @@ const mapData = {
             },
             {
                 value: "kepadatan_penduduk",
-                text: "Kepadatan Penduduk",
+                text: "Hotspot ISPA",
                 legends: {
-                    tinggi: "rgb(173, 83, 19)",
-                    sedang: "rgb(242, 167, 46)",
-                    rendah: "rgb(250,209,85)",
+                    "cold spot tinggi": "rgb(69, 117, 181)",
+                    "cold spot sedang": "rgb(132, 158, 186)",
+                    "cold spot rendah": "rgb(192, 204, 190)",
+                    "not significant": "rgb(247, 247, 242)",
+                    "hot spot rendah": "rgb(250, 185, 132)",
+                    "hot spot sedang": "rgb(237, 117, 81)",
+                    "hot spot tinggi": "rgb(214, 47, 39)",
                 },
             },
-            {
-                value: "suhu",
-                text: "Suhu",
-                legends: {
-                    tinggi: "rgb(240, 118, 5)",
-                    sedang: "rgb(255, 173, 102)",
-                    rendah: "rgb(255, 235, 204)",
-                },
-            },
-            {
-                value: "kelembapan",
-                text: "Kelembaban",
-                legends: {
-                    tinggi: "rgb(14, 204, 14)",
-                    sedang: "rgb(123, 232, 111)",
-                    rendah: "rgb(204, 255, 204)",
-                },
-            },
-            {
-                value: "curah_hujan",
-                legends: {
-                text: "Curah Hujan",
-                    tinggi: "rgb(255, 34, 0)",
-                    sedang: "rgb(255, 255, 0)",
-                    rendah: "rgb(85,255,0)",
-                },
-            },
+            // {
+            //     value: "suhu",
+            //     text: "Suhu",
+            //     legends: {
+            //         tinggi: "rgb(240, 118, 5)",
+            //         sedang: "rgb(255, 173, 102)",
+            //         rendah: "rgb(255, 235, 204)",
+            //     },
+            // },
+            // {
+            //     value: "kelembapan",
+            //     text: "Kelembaban",
+            //     legends: {
+            //         tinggi: "rgb(14, 204, 14)",
+            //         sedang: "rgb(123, 232, 111)",
+            //         rendah: "rgb(204, 255, 204)",
+            //     },
+            // },
+            // {
+            //     value: "curah_hujan",
+            //     text: "Curah Hujan",
+            //     legends: {
+            //         tinggi: "rgb(255, 34, 0)",
+            //         sedang: "rgb(255, 255, 0)",
+            //         rendah: "rgb(85,255,0)",
+            //     },
+            // },
         ],
     },
 };
