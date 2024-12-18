@@ -17,7 +17,7 @@
                 PENYAKIT MENULAR ISPA
             </h1>
             <p class="px-5 md:px-[90px] text-xl md:text-[20px] mt-6">Memberikan akses cepat dan mudah mengenai kasus penyakit
-                serta penyebaran ISPA Pneumonia Balita
+                serta penyebaran ISPA pada Balita
                 <br /> SIMELAR ISPA hadir untuk memberikan rangkuman informasi kasus ISPA yang up-to-date
                 <br />
                 khususnya di Yogyakarta.
@@ -36,7 +36,7 @@
                 </svg>
                 <h1 class="ml-6 text-2xl">Peta Data <br> Kesehatan</h1>
             </div>
-            <p class="mt-5 text-[14px]">Lihat distribusi penyakit ISPA Pneumonia di Kota Yogyakarta<br /> dengan peta
+            <p class="mt-5 text-[14px]">Lihat distribusi penyakit ISPA di Kota Yogyakarta<br /> dengan peta
                 interaktif kami. Akses cepat dan mudah <br /> untuk memahami kondisi kesehatan terkini di berbagai
                 <br /> daerah, khususnya di Kota Yogyakarta
             </p>
@@ -53,7 +53,7 @@
                 </svg>
                 <h1 class="ml-6 text-2xl">Grafik <br>Informasi</h1>
             </div>
-            <p class="mt-5 text-[14px]">Dapatkan visualisasi data penyakit ISPA Pneumonia  <br />terkini dalam bentuk grafik yang mudah
+            <p class="mt-5 text-[14px]">Dapatkan visualisasi data penyakit ISPA pada balita  <br />terkini dalam bentuk grafik yang mudah
                 dipahami.  <br />Monitor tren kesehatan masyarakat secara real-time dengan <br /> analisis yang tepat
             </p>
         </div>
@@ -72,7 +72,7 @@
                 </svg>
                 <h1 class="ml-6 text-2xl">Edukasi <br> Kesehatan</h1>
             </div>
-            <p class="mt-5 text-[14px]">Temukan artikel dan video edukasi mengenai <br />pencegahan penyakit ISPA Pneumonia, tips
+            <p class="mt-5 text-[14px]">Temukan artikel dan video edukasi mengenai <br />pencegahan penyakit ISPA, tips
                 kesehatan,<br />dan informasi penting untuk <br />menjaga kesejahteraan Anda dan keluarga
             </p>
         </div>

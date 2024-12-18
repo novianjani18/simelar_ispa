@@ -68,7 +68,7 @@
                 Penyakit Menular ISPA merupakan <br />
                 WebGIS yang memberikan informasi mengenai<br />
                 sebaran tingkatan penyakit ISPA  <br />
-                khususnya Pneumonia pada balita   <br />
+                khususnya pada balita   <br />
                 di masing-masing kemantren Kota Yogyakarta
             </p>
         </div>

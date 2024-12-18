@@ -91,8 +91,8 @@
                         </svg>
                      <div class="">
                     <h1 class="text-2xl mb-4 font-bold">Data ISPA</h1>
-                        <p class="text-[16px] text-[#929598]">Kumpulan Peta Tingkatan Kasus ISPA Pneumonia Balita
-                        <br />Dan Parameter ISPA Pneumonia Balita Terbaru</p>
+                        <p class="text-[16px] text-[#929598]">Kumpulan Peta Tingkatan Kasus ISPA pada Balita
+                        <br />Dan Parameter ISPA pada Balita Terbaru</p>
                     </div>
                     <button id="data-ispa" style="background-color: #6E9C6B;" class="text-center w-[95px] p-2 rounded-md text-white">Lihat Data</button>
                 </div>
@@ -105,7 +105,7 @@
     <div class="w-full max-w-3xl aspect-video"> <!-- Ukuran max-w diperbaiki -->
         <iframe
             class="w-full h-full rounded-lg"
-            src="https://www.youtube.com/embed/gaQ6wfjJhEA?si=6G0uwwMtcIfQg-6K"
+            src="https://www.youtube.com/embed/QAGnxa0t-iA?si=Mzm7oyQfRilX0nF8"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -272,7 +272,7 @@
 
         @if ($kepadatanIspa && $kepadatanIspa->gambar)
             renderDetailParam("{{ asset('storage/kepadatanPendudukIspa/' . $kepadatanIspa->gambar) }}",
-                'Kepadatan Penduduk');
+                'Hotspot');
         @else
             console.error("Kepadatan Penduduk ISPA data not available");
         @endif

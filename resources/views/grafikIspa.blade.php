@@ -29,7 +29,7 @@
     <div class="flex mt-20 z-10 overflow-auto">
         @include('components.grafik.sideBarGraph')
         <div class="">
-            <h1 id="title" class="font-bold text-2xl mb-4">Kasus ISPA Pneumonia Balita</h1>
+            <h1 id="title" class="font-bold text-2xl mb-4">Kasus ISPA pada Balita</h1>
             <div class="flex space-x-2">
                 <div style="width: 100vh; height: calc(100vh - 10rem)"
                     class="p-4 bg-white overflow-auto drop-shadow-lg rounded border border-slate-200">
