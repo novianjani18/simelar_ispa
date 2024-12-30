@@ -1140,26 +1140,60 @@
                             }
 
                             let fillColor = 'rgba(0, 0, 0, 0.6)';
-                            const tingkatKa = feature.get('tingkat_ka').toLowerCase();
+                            const tingkatKa = feature.get('tingkat_ka')?.toLowerCase()|| '';
 
                             // get legends 
-                            const options = mapData[jenisPenyakit].options
+                            const options = mapData[jenisPenyakit]?.options|| [];
                             const selectedOptions = options.find((option) => option
                                 .value === jenisParameter);
 
-                            if (!selectedOptions) return;
-                            const legends = selectedOptions.legends
-                            fillColor = legends[tingkatKa] ?? 'rgba(0, 0, 0, 0.6)';
+                            // if (!selectedOptions) return;
+                            // const legends = selectedOptions.legends
+                            // fillColor = legends[tingkatKa] ?? 'rgba(0, 0, 0, 0.6)';
 
-                            return new ol.style.Style({
+                            // return new ol.style.Style({
+                            //     fill: new ol.style.Fill({
+                            //         color: fillColor
+                            //     }),
+                            //     stroke: new ol.style.Stroke({
+                            //         color: '#333',
+                            //         width: 1
+                            //     })
+                            // });
+
+                            if (selectedOptions) {
+                            const legends = selectedOptions.legends || {};
+                            fillColor = legends[tingkatKa] ?? 'rgba(0, 0, 0, 0.6)';}
+
+                            //Gaya utama (warna isian dan garis batas)
+                            const mainStyle = new ol.style.Style({
                                 fill: new ol.style.Fill({
                                     color: fillColor
                                 }),
                                 stroke: new ol.style.Stroke({
                                     color: '#333',
-                                    width: 1
+                                    width: 1.5
+                                })
+                            })
+                            
+                            //Gaya label (nama kecamatan)
+                            const labelStyle = new ol.style.Style ({
+                                text: new ol.style.Text({
+                                    text: feature.get('kecamatan') || '', //Nama kecamatan
+                                    font: '10px Arial',
+                                    fill: new ol.style.Fill({
+                                        color: '#000'
+                                    }),
+                                    stroke: new ol.style.Stroke({
+                                        color: '#fff',
+                                        width: 2
+                                    }),
+                                    overflow: true, //Agar teks tidak terpotong
                                 })
                             });
+
+                            //Kembalikan array gaya
+                            return [mainStyle, labelStyle];
                         }
                     });
 
@@ -1505,28 +1539,49 @@
                             }
 
                             let fillColor = 'rgba(0, 0, 0, 0.6)';
-                            const tingkatKa = feature.get('tingkat_ka').toLowerCase();
+                            const tingkatKa = feature.get('tingkat_ka')?.toLowerCase()|| '';
 
                             // get legends 
-                            const options = mapData[jenisPenyakitData1].options
+                            const options = mapData[jenisPenyakitData1]?.options|| [];
                             const selectedOptions = options.find((option) => option
                                 .value === jenisParameterData1);
 
-                            if (!selectedOptions) return;
-                            const legends = selectedOptions.legends
-                            fillColor = legends[tingkatKa] ?? 'rgba(0, 0, 0, 0.6)';
+                            if (selectedOptions) {
+                            const legends = selectedOptions.legends|| {};
+                            fillColor = legends[tingkatKa] ?? 'rgba(0, 0, 0, 0.6)';}
 
-                            return new ol.style.Style({
+
+                            //Gaya utama (warna isian dan garis batas)
+                            const mainStyle = new ol.style.Style({
                                 fill: new ol.style.Fill({
                                     color: fillColor
                                 }),
                                 stroke: new ol.style.Stroke({
                                     color: '#333',
-                                    width: 1
+                                    width: 1.5
                                 })
-                            });
-                        }
+                            })
+
+                            //Gaya label (nama kecamatan)
+                            const labelStyle = new ol.style.Style({
+                                text: new ol.style.Text({
+                                    text: feature.get('kecamatan') || '', //Nama kecamatan
+                                    font: '10px Arial',
+                                    fill: new ol.style.Fill({
+                                        color: '#000'
+                                    }),
+                                stroke: new ol.style.Stroke({
+                                    color: '#fff',
+                                    width: 2
+                                }),
+                                overflow: true, //Agar teks tidak terpotong
+                            })
                     });
+
+                    //Kembalikan array gaya
+                    return [mainStyle, labelStyle];
+                }
+            });
 
                     map.addLayer(newVectorLayer);
                 },
@@ -1694,26 +1749,47 @@
                             }
 
                             let fillColor = 'rgba(0, 0, 0, 0.6)';
-                            const tingkatKa = feature.get('tingkat_ka').toLowerCase();
+                            const tingkatKa = feature.get('tingkat_ka').toLowerCase()|| '';
 
                             // get legends 
-                            const options = mapData[jenisPenyakitData2].options
+                            const options = mapData[jenisPenyakitData2]?.options|| [];
                             const selectedOptions = options.find((option) => option
                                 .value === jenisParameterData2);
 
-                            if (!selectedOptions) return;
-                            const legends = selectedOptions.legends
-                            fillColor = legends[tingkatKa] ?? 'rgba(0, 0, 0, 0.6)';
+                            if (selectedOptions){
+                            const legends = selectedOptions.legends|| {};
+                            fillColor = legends[tingkatKa] ?? 'rgba(0, 0, 0, 0.6)';}
 
-                            return new ol.style.Style({
+                            //Gaya utama (warna isian dan garis batas)
+                            const mainStyle = new ol.style.Style({
                                 fill: new ol.style.Fill({
                                     color: fillColor
                                 }),
                                 stroke: new ol.style.Stroke({
                                     color: '#333',
-                                    width: 1
+                                    width: 1.5
+                                })
+                            })
+
+                            //Gaya label (nama kecamatan)
+                            const labelStyle = new ol.style.Style ({
+                                text: new ol.style.Text({
+                                    text: feature.get('kecamatan') || '', //Nama kecamatan
+                                    font: '10px Arial',
+                                    fill: new ol.style.Fill({
+                                        color: '#000'
+                                    }),
+                                    stroke: new ol.style.Stroke({
+                                        color: '#fff',
+                                        width: 2
+                                    }),
+                                    overflow: true, //Agar teks tidak terpotong
                                 })
                             });
+
+                            //Kembalikan array gaya
+                            return [mainStyle, labelStyle];
+
                         }
                     });
 
@@ -1906,14 +1982,14 @@
                             }
 
                             let fillColor = 'rgba(0, 0, 0, 0.6)';
-                            const tingkatKa = feature.get('tingkat_ka').toLowerCase();
+                            const tingkatKa = feature.get('tingkat_ka')?.toLowerCase()|| '';
 
                             // get legends 
-                            const options = mapData[jenisPenyakitData1].options
+                            const options = mapData[jenisPenyakitData1].options|| [];
                             const selectedOptions = options.find((option) => option
                                 .value === jenisParameterData1);
 
-                            if (!selectedOptions) return;
+                            if (selectedOptions){
                             alpha = ((100 - transparencyRangeData1) /
                                     100)
                                 .toFixed(
@@ -1923,9 +1999,11 @@
 
                             fillColor =
                                 `rgba(${legends[tingkatKa].substring(4, legends[tingkatKa].length-1)}, ${alpha})` ??
-                                'rgba(0, 0, 0, 0.6)';
+                                'rgba(0, 0, 0, 0.6)';}
 
-                            return new ol.style.Style({
+
+                                //Gaya utama (warna isian dan garis batas)
+                            const mainStyle = new ol.style.Style({
                                 fill: new ol.style.Fill({
                                     color: fillColor
                                 }),
@@ -1933,7 +2011,26 @@
                                     color: `rgba(0, 0, 0, ${alpha})`,
                                     width: 1
                                 })
+                            })
+
+                            //Gaya label (nama kecamatan)
+                            const labelStyle = new ol.style.Style ({
+                                text: new ol.style.Text({
+                                    text: feature.get('kecamatan') || '', //Nama kecamatan
+                                    font: '10px Arial',
+                                    fill: new ol.style.Fill({
+                                        color: '#000'
+                                    }),
+                                    stroke: new ol.style.Stroke({
+                                        color: '#fff',
+                                        width: 2
+                                    }),
+                                    overflow: true, //Agar teks tidak terpotong
+                                })
                             });
+
+                             //Kembalikan array gaya
+                             return [mainStyle, labelStyle];
                         }
                     });
 
@@ -2107,26 +2204,27 @@
                             }
 
                             let fillColor = 'rgba(0, 0, 0, 0.6)';
-                            const tingkatKa = feature.get('tingkat_ka').toLowerCase();
+                            const tingkatKa = feature.get('tingkat_ka').toLowerCase()|| '';
 
                             // get legends 
-                            const options = mapData[jenisPenyakitData2].options
+                            const options = mapData[jenisPenyakitData2]?.options|| [];
                             const selectedOptions = options.find((option) => option
                                 .value === jenisParameterData2);
 
-                            if (!selectedOptions) return;
+                            if (selectedOptions) {
                             alpha = ((100 - transparencyRangeData2) /
                                     100)
                                 .toFixed(
                                     1)
 
-                            const legends = selectedOptions.legends
+                            const legends = selectedOptions.legends|| {};
 
                             fillColor =
                                 `rgba(${legends[tingkatKa].substring(4, legends[tingkatKa].length-1)}, ${alpha})` ??
-                                'rgba(0, 0, 0, 0.6)';
+                                'rgba(0, 0, 0, 0.6)';}
 
-                            return new ol.style.Style({
+                            //Gaya utama (warna isian dan garis batas) 
+                            const mainStyle = new ol.style.Style({
                                 fill: new ol.style.Fill({
                                     color: fillColor
                                 }),
@@ -2134,7 +2232,27 @@
                                     color: `rgba(0, 0, 0, ${alpha})`,
                                     width: 1
                                 })
+                            })
+
+                             //Gaya label (nama kecamatan)
+                             const labelStyle = new ol.style.Style ({
+                                text: new ol.style.Text({
+                                    text: feature.get('kecamatan') || '', //Nama kecamatan
+                                    font: '10px Arial',
+                                    fill: new ol.style.Fill({
+                                        color: '#000'
+                                    }),
+                                    stroke: new ol.style.Stroke({
+                                        color: '#fff',
+                                        width: 2
+                                    }),
+                                    overflow: true, //Agar teks tidak terpotong
+                                })
                             });
+
+                            //Kembalikan array gaya
+                            return [mainStyle, labelStyle];
+
                         }
                     });
 
